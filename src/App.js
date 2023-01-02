@@ -1,18 +1,14 @@
-import './App.css';
-import Joke from './components/Jokes'
+import React from "react";
+import "./App.css";
+import Joke from "./components/Joke";
+import JokeData from "../src/components/JokeData";
 
 function App() {
-  return (
-    <div className="App">
-    <h1>Hi</h1>
-    <Joke setup = "What a good joke?"
-    punchline = "This is!"
-    />
-    <Joke setup = "What a good joke now?"
-    punchline = "This is! Too!"
-    />
-    </div>
-  );
+  const JokeElements = JokeData.map((joke) => {
+    return <Joke setup={joke.setup} punchline={joke.punchline} />;
+  });
+
+  return <div>{JokeElements}</div>;
 }
 
 export default App;
